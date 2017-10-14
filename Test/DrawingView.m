@@ -12,6 +12,7 @@
 @interface DrawingView()
 
 @property (nonatomic) NSMutableArray<LineData *> *line;
+@property (nonatomic) UIColor *color;
 
 @end
 
@@ -24,6 +25,21 @@
         _line = [NSMutableArray new];
     }
     return self;
+}
+
+- (IBAction)changeStrokeColor:(UIButton *)sender {
+    UIColor *color;
+    if (sender.tag == 0) {
+        color = [UIColor purpleColor];
+        if (sender.tag == 1) {
+            color = [UIColor orangeColor];
+        } else {
+            color = [UIColor greenColor];
+        }
+    }
+    
+    [self.color setStroke];
+    
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -60,7 +76,7 @@
     path.lineWidth = 5.0;
     path.lineCapStyle = kCGLineCapRound;
     UIColor *gray = [UIColor grayColor];
-    [gray setStroke];
+    [self.color setStroke];
 
     // Loop through all elements in the segment array and draw each line
     for (LineData *segment in self.line) {
@@ -84,6 +100,7 @@
     [self.line removeAllObjects];
     [self setNeedsDisplay];
 }
+
 
 
 @end

@@ -27,6 +27,20 @@
                                             <constraint firstAttribute="width" constant="50" id="51a-WT-cjB"/>
                                             <constraint firstAttribute="height" constant="50" id="LLX-Uw-spX"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="changeStrokeColor:" destination="IZy-qJ-wsV" eventType="touchUpInside" id="qzH-Zf-wsj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0mM-i5-ExN">
+                                        <rect key="frame" x="71" y="10" width="50" height="50"/>
+                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="YS4-NQ-jBF"/>
+                                            <constraint firstAttribute="height" constant="50" id="nm6-Sh-HYt"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="changeStrokeColor:" destination="IZy-qJ-wsV" eventType="touchUpInside" id="AMK-7t-lxg"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mb5-xL-Kug">
                                         <rect key="frame" x="255" y="10" width="70" height="30"/>
@@ -42,11 +56,26 @@
                                             <action selector="clear" destination="IZy-qJ-wsV" eventType="touchUpInside" id="Gur-cU-Ei5"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4UO-G8-dFm">
+                                        <rect key="frame" x="131" y="10" width="50" height="50"/>
+                                        <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="G4R-XK-aqN"/>
+                                            <constraint firstAttribute="width" constant="50" id="cN2-i1-ODZ"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="changeStrokeColor:" destination="IZy-qJ-wsV" eventType="touchUpInside" id="dyW-kq-0HA"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Mb5-xL-Kug" secondAttribute="trailing" constant="10" id="Aag-7f-d1j"/>
                                     <constraint firstItem="A3F-L7-vfO" firstAttribute="leading" secondItem="IZy-qJ-wsV" secondAttribute="leading" constant="10" id="CTW-Ed-b42"/>
+                                    <constraint firstItem="0mM-i5-ExN" firstAttribute="leading" secondItem="A3F-L7-vfO" secondAttribute="trailing" constant="11" id="W83-04-9qN"/>
+                                    <constraint firstItem="4UO-G8-dFm" firstAttribute="top" secondItem="IZy-qJ-wsV" secondAttribute="top" constant="10" id="WSp-ja-hPZ"/>
+                                    <constraint firstItem="0mM-i5-ExN" firstAttribute="top" secondItem="IZy-qJ-wsV" secondAttribute="top" constant="10" id="Xle-fw-jyv"/>
+                                    <constraint firstItem="4UO-G8-dFm" firstAttribute="leading" secondItem="0mM-i5-ExN" secondAttribute="trailing" constant="10" id="ZoA-fi-3Ac"/>
                                     <constraint firstItem="Mb5-xL-Kug" firstAttribute="top" secondItem="IZy-qJ-wsV" secondAttribute="top" constant="10" id="cW3-Qw-4GG"/>
                                     <constraint firstItem="A3F-L7-vfO" firstAttribute="top" secondItem="IZy-qJ-wsV" secondAttribute="top" constant="10" id="lTX-jl-x7I"/>
                                 </constraints>
