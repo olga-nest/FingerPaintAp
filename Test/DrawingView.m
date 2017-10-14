@@ -36,7 +36,7 @@
     NSLog(@"Checking button color via tag");
     if (sender.tag == 1) {
         NSLog(@"Setting self.color to purple");
-        self.color = [UIColor purpleColor];
+        self.color = [UIColor purpleColor]; }
         if (sender.tag == 2) {
             NSLog(@"Setting self.color to orange");
             self.color = [UIColor orangeColor];
@@ -45,7 +45,6 @@
             self.color = [UIColor whiteColor];
         }
     }
-}
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     //Get the location of the first touch
