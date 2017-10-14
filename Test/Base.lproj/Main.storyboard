@@ -18,17 +18,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZy-qJ-wsV" customClass="DrawingView">
-                                <rect key="frame" x="20" y="167" width="335" height="480"/>
-                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="20" y="40" width="335" height="607"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A3F-L7-vfO">
+                                        <rect key="frame" x="10" y="10" width="50" height="50"/>
+                                        <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="51a-WT-cjB"/>
+                                            <constraint firstAttribute="height" constant="50" id="LLX-Uw-spX"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="colorChangePurple:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kXQ-eP-PcN"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="335" id="Fam-HM-X8A"/>
-                                    <constraint firstAttribute="height" constant="480" id="Ls9-IY-mWc"/>
+                                    <constraint firstItem="A3F-L7-vfO" firstAttribute="leading" secondItem="IZy-qJ-wsV" secondAttribute="leading" constant="10" id="CTW-Ed-b42"/>
+                                    <constraint firstItem="A3F-L7-vfO" firstAttribute="top" secondItem="IZy-qJ-wsV" secondAttribute="top" constant="10" id="lTX-jl-x7I"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="IZy-qJ-wsV" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9Nk-Rg-Oha"/>
+                            <constraint firstItem="IZy-qJ-wsV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="MiR-nd-Yd8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="IZy-qJ-wsV" secondAttribute="bottom" constant="20" id="PnI-Pr-jfb"/>
                             <constraint firstItem="IZy-qJ-wsV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="eqY-u7-gN2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IZy-qJ-wsV" secondAttribute="trailing" constant="20" id="mOK-Pz-PqS"/>
