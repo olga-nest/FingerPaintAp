@@ -11,8 +11,10 @@
 
 @interface DrawingView()
 
-@property (nonatomic) NSMutableArray<LineData *> *line;
-@property (nonatomic) UIColor *color;
+@property (nonatomic) NSMutableArray<LineData *> *whiteLine;
+@property (nonatomic) NSMutableArray<LineData *> *purpleLine;
+@property (nonatomic) NSMutableArray<LineData *> *orangeLine;
+@property (nonatomic, weak) UIColor *color;
 
 @end
 
@@ -22,24 +24,23 @@
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super initWithCoder:aDecoder]) {
-        _line = [NSMutableArray new];
+        _whiteLine = [NSMutableArray new];
+        _purpleLine = [NSMutableArray new];
+        _orangeLine = [NSMutableArray new];
+        _color = [UIColor whiteColor];
     }
     return self;
 }
 
 - (IBAction)changeStrokeColor:(UIButton *)sender {
-    UIColor *color;
     if (sender.tag == 0) {
-        color = [UIColor purpleColor];
+        self.color = [UIColor purpleColor];
         if (sender.tag == 1) {
-            color = [UIColor orangeColor];
+            self.color = [UIColor orangeColor];
         } else {
-            color = [UIColor greenColor];
+            self.color = [UIColor whiteColor];
         }
     }
-    
-    [self.color setStroke];
-    
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -47,11 +48,21 @@
     UITouch *touch = touches.anyObject;
     CGPoint first = [touch previousLocationInView:self];
 
+    
     //Init with same start and end point, since this is starting point and there's no previous point
     LineData *segment = [[LineData alloc]initWithFirstPoint:first secondPoint:first];
     //Add to the array of the line
-    [self.line addObject:segment];
-
+    
+    if (self.color == [UIColor whiteColor]) {
+        [self.whiteLine addObject:segment];
+    } else if (self.color == [UIColor orangeColor]) {
+        [self.orangeLine addObject:segment];
+    } else if (self.color == [UIColor purpleColor]){
+        [self.purpleLine addObject:segment];
+    } else {
+        NSLog(@"Oops, s]omethong went wrong... Cannot add a stroke to correct array");
+    }
+    
     //redraw
     [self setNeedsDisplay];
 }
@@ -64,8 +75,17 @@
     CGPoint next = [touch locationInView:self];
 
     LineData *segment = [[LineData alloc]initWithFirstPoint:first secondPoint:next];
-    [self.line addObject:segment];
-
+   
+    if (self.color == [UIColor whiteColor]) {
+        [self.whiteLine addObject:segment];
+    } else if (self.color == [UIColor orangeColor]) {
+        [self.orangeLine addObject:segment];
+    } else if (self.color == [UIColor purpleColor]){
+        [self.purpleLine addObject:segment];
+    } else {
+        NSLog(@"Oops, s]omethong went wrong... Cannot add a stroke to correct array");
+    }
+    
     [self setNeedsDisplay];
 
 }
@@ -75,11 +95,12 @@
     UIBezierPath *path = [UIBezierPath bezierPath];
     path.lineWidth = 5.0;
     path.lineCapStyle = kCGLineCapRound;
-    UIColor *gray = [UIColor grayColor];
+//    UIColor *gray = [UIColor grayColor];
+ //   [self.color setStroke];
     [self.color setStroke];
 
     // Loop through all elements in the segment array and draw each line
-    for (LineData *segment in self.line) {
+    for (LineData *segment in self.whiteLine) {
         if (CGPointEqualToPoint(segment.firstPoint, segment.secondPoint)) {
             // If start/end point of line segment is the same (i.e. this is the first
             // point, then move to that point so that line is drawn starting from that
@@ -97,7 +118,7 @@
 }
 
 - (IBAction)clear {
-    [self.line removeAllObjects];
+    [self.whiteLine removeAllObjects];
     [self setNeedsDisplay];
 }
 
