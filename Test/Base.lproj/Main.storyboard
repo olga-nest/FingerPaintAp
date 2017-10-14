@@ -27,14 +27,27 @@
                                             <constraint firstAttribute="width" constant="50" id="51a-WT-cjB"/>
                                             <constraint firstAttribute="height" constant="50" id="LLX-Uw-spX"/>
                                         </constraints>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mb5-xL-Kug">
+                                        <rect key="frame" x="255" y="10" width="70" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="0V3-Hk-8mq"/>
+                                            <constraint firstAttribute="width" constant="70" id="AbM-8b-aJX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="Clear">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
-                                            <action selector="colorChangePurple:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kXQ-eP-PcN"/>
+                                            <action selector="clear" destination="IZy-qJ-wsV" eventType="touchUpInside" id="Gur-cU-Ei5"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Mb5-xL-Kug" secondAttribute="trailing" constant="10" id="Aag-7f-d1j"/>
                                     <constraint firstItem="A3F-L7-vfO" firstAttribute="leading" secondItem="IZy-qJ-wsV" secondAttribute="leading" constant="10" id="CTW-Ed-b42"/>
+                                    <constraint firstItem="Mb5-xL-Kug" firstAttribute="top" secondItem="IZy-qJ-wsV" secondAttribute="top" constant="10" id="cW3-Qw-4GG"/>
                                     <constraint firstItem="A3F-L7-vfO" firstAttribute="top" secondItem="IZy-qJ-wsV" secondAttribute="top" constant="10" id="lTX-jl-x7I"/>
                                 </constraints>
                             </view>

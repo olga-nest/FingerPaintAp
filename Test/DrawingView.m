@@ -17,6 +17,7 @@
 
 @implementation DrawingView
 
+
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super initWithCoder:aDecoder]) {
@@ -77,6 +78,11 @@
     }
     [path stroke];
 
+}
+
+- (IBAction)clear {
+    [self.line removeAllObjects];
+    [self setNeedsDisplay];
 }
 
 
