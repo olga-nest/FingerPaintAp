@@ -35,7 +35,7 @@
     //Add to the array of the line
     [self.line addObject:segment];
 
-    //add to the view
+    //redraw
     [self setNeedsDisplay];
 }
 
@@ -44,7 +44,7 @@
     //get the to touch points: previous(first) and current(next)
     UITouch *touch = touches.anyObject;
     CGPoint first = [touch previousLocationInView:self];
-    CGPoint next = [touch previousLocationInView:self];
+    CGPoint next = [touch locationInView:self];
 
     LineData *segment = [[LineData alloc]initWithFirstPoint:first secondPoint:next];
     [self.line addObject:segment];

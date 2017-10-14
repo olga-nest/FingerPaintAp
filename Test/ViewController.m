@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "DrawingView.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIView *drawingView;
