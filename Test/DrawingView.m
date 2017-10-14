@@ -101,17 +101,12 @@
 
 // Override drawRect (reason - custom drawing)
 - (void)drawRect:(CGRect)rect {
-//    UIBezierPath *path = [UIBezierPath bezierPath];
-//    path.lineWidth = 5.0;
-//    path.lineCapStyle = kCGLineCapRound;
-//    [self.color setStroke];
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    path.lineWidth = 5.0;
+    path.lineCapStyle = kCGLineCapRound;
+    [self.color setStroke];
 
     if (self.color == [UIColor whiteColor]) {
-        UIBezierPath *path = [UIBezierPath bezierPath];
-        path.lineWidth = 5.0;
-        path.lineCapStyle = kCGLineCapRound;
-        
-        [[UIColor whiteColor] setStroke];
         for (LineData *segment in self.whiteLine) {
             if (CGPointEqualToPoint(segment.firstPoint, segment.secondPoint)) {
                 [path moveToPoint:segment.firstPoint];
@@ -120,13 +115,7 @@
             [path addLineToPoint:segment.firstPoint];
             [path addLineToPoint:segment.secondPoint];
         }
-        [path stroke];
     } else if (self.color == [UIColor orangeColor]) {
-        UIBezierPath *path = [UIBezierPath bezierPath];
-        path.lineWidth = 5.0;
-        path.lineCapStyle = kCGLineCapRound;
-        
-        [[UIColor orangeColor] setStroke];
         for (LineData *segment in self.orangeLine) {
             if (CGPointEqualToPoint(segment.firstPoint, segment.secondPoint)) {
                 [path moveToPoint:segment.firstPoint];
@@ -135,13 +124,7 @@
             [path addLineToPoint:segment.firstPoint];
             [path addLineToPoint:segment.secondPoint];
         }
-        [path stroke];
     } else if (self.color == [UIColor purpleColor]) {
-        UIBezierPath *path = [UIBezierPath bezierPath];
-        path.lineWidth = 5.0;
-        path.lineCapStyle = kCGLineCapRound;
-        
-        [[UIColor purpleColor] setStroke];
         for (LineData *segment in self.purpleLine) {
             if (CGPointEqualToPoint(segment.firstPoint, segment.secondPoint)) {
                 [path moveToPoint:segment.firstPoint];
@@ -151,8 +134,8 @@
             [path addLineToPoint:segment.secondPoint];
             
         }
-        [path stroke];
     }
+    [path stroke];
     
 }
 
