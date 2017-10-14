@@ -33,11 +33,15 @@
 }
 
 - (IBAction)changeStrokeColor:(UIButton *)sender {
-    if (sender.tag == 0) {
+    NSLog(@"Checking button color via tag");
+    if (sender.tag == 1) {
+        NSLog(@"Setting self.color to purple");
         self.color = [UIColor purpleColor];
-        if (sender.tag == 1) {
+        if (sender.tag == 2) {
+            NSLog(@"Setting self.color to orange");
             self.color = [UIColor orangeColor];
-        } else {
+        } else if (sender.tag == 3) {
+            NSLog(@"Setting self.color to white");
             self.color = [UIColor whiteColor];
         }
     }
@@ -54,10 +58,13 @@
     //Add to the array of the line
     
     if (self.color == [UIColor whiteColor]) {
+        NSLog(@"TouchBegan: Adding a segment to the white array");
         [self.whiteLine addObject:segment];
     } else if (self.color == [UIColor orangeColor]) {
+        NSLog(@"TouchBegan: Adding a segment to the orange array");
         [self.orangeLine addObject:segment];
     } else if (self.color == [UIColor purpleColor]){
+        NSLog(@"TouchBegan: Adding a segment to the purple array");
         [self.purpleLine addObject:segment];
     } else {
         NSLog(@"Oops, s]omethong went wrong... Cannot add a stroke to correct array");
@@ -77,10 +84,13 @@
     LineData *segment = [[LineData alloc]initWithFirstPoint:first secondPoint:next];
    
     if (self.color == [UIColor whiteColor]) {
+        NSLog(@"TouchMoved: Adding a segment to the white array");
         [self.whiteLine addObject:segment];
     } else if (self.color == [UIColor orangeColor]) {
+        NSLog(@"TouchMoved: Adding a segment to the orange array");
         [self.orangeLine addObject:segment];
     } else if (self.color == [UIColor purpleColor]){
+        NSLog(@"TouchMoved: Adding a segment to the purple array");
         [self.purpleLine addObject:segment];
     } else {
         NSLog(@"Oops, s]omethong went wrong... Cannot add a stroke to correct array");
@@ -92,33 +102,65 @@
 
 // Override drawRect (reason - custom drawing)
 - (void)drawRect:(CGRect)rect {
-    UIBezierPath *path = [UIBezierPath bezierPath];
-    path.lineWidth = 5.0;
-    path.lineCapStyle = kCGLineCapRound;
-//    UIColor *gray = [UIColor grayColor];
- //   [self.color setStroke];
-    [self.color setStroke];
+//    UIBezierPath *path = [UIBezierPath bezierPath];
+//    path.lineWidth = 5.0;
+//    path.lineCapStyle = kCGLineCapRound;
+//    [self.color setStroke];
 
-    // Loop through all elements in the segment array and draw each line
-    for (LineData *segment in self.whiteLine) {
-        if (CGPointEqualToPoint(segment.firstPoint, segment.secondPoint)) {
-            // If start/end point of line segment is the same (i.e. this is the first
-            // point, then move to that point so that line is drawn starting from that
-            // point
-            [path moveToPoint:segment.firstPoint];
-            continue;
+    if (self.color == [UIColor whiteColor]) {
+        UIBezierPath *path = [UIBezierPath bezierPath];
+        path.lineWidth = 5.0;
+        path.lineCapStyle = kCGLineCapRound;
+        
+        [[UIColor whiteColor] setStroke];
+        for (LineData *segment in self.whiteLine) {
+            if (CGPointEqualToPoint(segment.firstPoint, segment.secondPoint)) {
+                [path moveToPoint:segment.firstPoint];
+                continue;
+            }
+            [path addLineToPoint:segment.firstPoint];
+            [path addLineToPoint:segment.secondPoint];
         }
-        // Draw a line from the previous line segment to the first point
-        [path addLineToPoint:segment.firstPoint];
-        // Draw a line from the first point to the second point
-        [path addLineToPoint:segment.secondPoint];
+        [path stroke];
+    } else if (self.color == [UIColor orangeColor]) {
+        UIBezierPath *path = [UIBezierPath bezierPath];
+        path.lineWidth = 5.0;
+        path.lineCapStyle = kCGLineCapRound;
+        
+        [[UIColor orangeColor] setStroke];
+        for (LineData *segment in self.orangeLine) {
+            if (CGPointEqualToPoint(segment.firstPoint, segment.secondPoint)) {
+                [path moveToPoint:segment.firstPoint];
+                continue;
+            }
+            [path addLineToPoint:segment.firstPoint];
+            [path addLineToPoint:segment.secondPoint];
+        }
+        [path stroke];
+    } else if (self.color == [UIColor purpleColor]) {
+        UIBezierPath *path = [UIBezierPath bezierPath];
+        path.lineWidth = 5.0;
+        path.lineCapStyle = kCGLineCapRound;
+        
+        [[UIColor purpleColor] setStroke];
+        for (LineData *segment in self.purpleLine) {
+            if (CGPointEqualToPoint(segment.firstPoint, segment.secondPoint)) {
+                [path moveToPoint:segment.firstPoint];
+                continue;
+            }
+            [path addLineToPoint:segment.firstPoint];
+            [path addLineToPoint:segment.secondPoint];
+            
+        }
+        [path stroke];
     }
-    [path stroke];
-
+    
 }
 
 - (IBAction)clear {
     [self.whiteLine removeAllObjects];
+    [self.purpleLine removeAllObjects];
+    [self.orangeLine removeAllObjects];
     [self setNeedsDisplay];
 }
 
